@@ -26,8 +26,9 @@ public class MainFrame {
 		mainMenuBar.add(tools);
 		tools.add(lists);
 		
-		mainPanel = new MainPanel();
 		
+		//add the MainPanel
+		mainPanel = new MainPanel();
 		mainFrame.getContentPane().add(mainPanel);
 		
 		
