@@ -12,15 +12,15 @@ public class MainPanel extends JPanel{
 	
 	CardLayout cardLayout;
 	
-	Lists listis;
+	ListsPanel listsPanel1;
 	public MainPanel() {
 		mainPanel = new JPanel();
 		
 		cardLayout = new CardLayout();
 		mainPanel.setLayout(cardLayout);
-		listis = new Lists();
-		mainPanel.add(listis, "listis");
-		cardLayout.show(mainPanel, "listis");
+		listsPanel1 = new ListsPanel();
+		mainPanel.add(listsPanel1, "listsPanel1");
+		cardLayout.show(mainPanel, "ListsPanel1");
 		
 		add(mainPanel);
 	}
