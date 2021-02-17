@@ -8,6 +8,8 @@ public class Data {
 	File folder;
 	File file;
 	
+	String defaultFolder = "Data";
+	
 	private ArrayList<String> names = new ArrayList<String>();
 	
 	public void addName(String newName) {
@@ -86,6 +88,11 @@ public class Data {
 			this.names = tempNames;
 			
 		}
+	}
+	
+	
+	Data(){
+		setFolder(defaultFolder);
 	}
 	
 }
