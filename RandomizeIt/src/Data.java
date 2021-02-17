@@ -29,6 +29,9 @@ public class Data {
 	}
 	
 	
+	
+	
+	// Code for Storage stuff:
 	public void setFolder(String tempfolder) {
 		this.folder = new File(tempfolder);
 		if (!this.folder.exists()) {
