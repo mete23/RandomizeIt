@@ -20,7 +20,7 @@ public class MainPanel extends JPanel{
 		mainPanel.setLayout(cardLayout);
 		listsPanel1 = new ListsPanel();
 		mainPanel.add(listsPanel1, "listsPanel1");
-		cardLayout.show(mainPanel, "ListsPanel1");
+		this.cardLayout.show(mainPanel, "ListsPanel1");
 		
 		add(mainPanel);
 	}

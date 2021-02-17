@@ -1,17 +1,24 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class MainFrame {
+public class MainFrame extends JFrame implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1557925482997380514L;
 	JFrame mainFrame;
 	JMenuBar mainMenuBar;
 	JMenu tools;
 	JMenuItem lists;
 	
-	MainPanel mainPanel;
+	MainPanel mainPanel1;
 	
 	public MainFrame() {
 		mainFrame = new JFrame();
@@ -25,11 +32,11 @@ public class MainFrame {
 		mainFrame.setJMenuBar(mainMenuBar);
 		mainMenuBar.add(tools);
 		tools.add(lists);
-		
+		lists.addActionListener(this);
 		
 		//add the MainPanel
-		mainPanel = new MainPanel();
-		mainFrame.getContentPane().add(mainPanel);
+		mainPanel1 = new MainPanel();
+		mainFrame.getContentPane().add(mainPanel1);
 		
 		
 		mainFrame.pack();
@@ -38,5 +45,14 @@ public class MainFrame {
 			
 		
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == lists) {
+			mainPanel1.cardLayout.show(mainPanel1.mainPanel, "listsPanel1");
+			System.out.println("show lists");
+		}
+	}
+	
 	
 }
