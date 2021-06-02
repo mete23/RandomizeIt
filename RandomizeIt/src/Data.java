@@ -8,7 +8,7 @@ public class Data {
 	File folder;
 	File file;
 	
-	String defaultFolder = "Data";
+	String defaultFolder = "Data/Lists";
 	
 	private ArrayList<String> names = new ArrayList<String>();
 	
