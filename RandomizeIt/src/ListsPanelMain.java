@@ -12,6 +12,7 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	JPanel listsPanelMain;
 	JButton randomButton;
 	JTextField randomResult;
+	Data list1 = new Data();
 
 	public ListsPanelMain() {
 		listsPanelMain = new JPanel();
@@ -27,7 +28,10 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 		listsPanelMain.add(randomResult);
 		
 		
+		
 		add(listsPanelMain);
+		
+		
 		
 	}
 	@Override
@@ -35,6 +39,8 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == randomButton) {
 			System.out.println("randomButton clicked");
+			
+			randomResult.setText(list1.randomItem());
 		}
 	}
 }
