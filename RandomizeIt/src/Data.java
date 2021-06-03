@@ -35,6 +35,16 @@ public class Data {
 	}
 	
 	
+	public String getItemAt(int index) {
+		if (this.getSize() > 0) {
+			return this.names.get(index);
+		}
+		else {
+			return null;
+		}
+	}
+	
+	
 	
 	
 	// Code for Storage stuff:

@@ -1,6 +1,10 @@
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
@@ -18,6 +22,7 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	
 	JButton testButton;
 	JButton setupButton;
+	JButton listListItemsButton;
 
 	public ListsPanelMain() {
 		
@@ -29,6 +34,9 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 		randomButton = new JButton("random");
 		randomButton.addActionListener(this);
 		
+		listListItemsButton = new JButton("list ListItems");
+		listListItemsButton.addActionListener(this);
+		
 		randomResult = new JTextField();
 		randomResult.setEditable(false);
 		
@@ -36,6 +44,8 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 		
 		listsPanelMain.add(randomButton);
 		listsPanelMain.add(randomResult);
+		
+		listsPanelMain.add(listListItemsButton);
 		
 		
 		
@@ -63,6 +73,20 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 			
 			randomResult.setText(list1.randomItem());
 		}
+		
+		if(e.getSource() == listListItemsButton) {
+			
+			String list1Items = new String();
+			list1Items = "";
+			for (int n = 0; n < list1.getSize(); n++) {
+				list1Items = list1Items + list1.getItemAt(n) + ";";
+				
+			}
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, list1Items);
+		}
+		
+		
 		
 		if(e.getSource() == testButton) {
 			System.out.println("testButton clicked");
