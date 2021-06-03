@@ -17,7 +17,7 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	JPanel listsPanelMain;
 	JButton randomButton;
 	JTextField randomResult;
-	Data list1 = new Data();
+	static Data list1 = new Data();
 	
 	
 	JButton testButton;
@@ -79,7 +79,7 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 			String list1Items = new String();
 			list1Items = "";
 			for (int n = 0; n < list1.getSize(); n++) {
-				list1Items = list1Items + list1.getItemAt(n) + ";";
+				list1Items = list1Items + list1.getItemAt(n) + "; ";
 				
 			}
 			JFrame frame = new JFrame();

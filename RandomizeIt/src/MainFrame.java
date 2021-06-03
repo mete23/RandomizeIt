@@ -70,7 +70,12 @@ public class MainFrame extends JFrame implements ActionListener{
 			// write action
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(frame, "MenuItem \"editLists was\" clicked!");
-		
+			int amountOfNames = Integer.parseInt(JOptionPane.showInputDialog("Wie viele Namen möchten Sie hinzufügen?"));
+			for (int i = 1; i<= amountOfNames; i++){
+				String nameForAdding = JOptionPane.showInputDialog("Gib den " + i + ". Namen ein!");
+				ListsPanelMain.list1.addName(nameForAdding);
+			}
+			
 		}
 	}
 	
