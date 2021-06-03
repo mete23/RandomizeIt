@@ -26,8 +26,12 @@ public class Data {
 		return this.names.contains(word);
 	}
 	public String randomItem() {
-		
+		if (this.getSize() > 0){
 		return this.names.get(random.randomInt(0, (this.getSize()-1)));
+		}
+		else {
+			return "noitem";
+		}
 	}
 	
 	

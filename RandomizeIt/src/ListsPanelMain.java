@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class ListsPanelMain extends JPanel implements ActionListener{
@@ -13,8 +14,17 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	JButton randomButton;
 	JTextField randomResult;
 	Data list1 = new Data();
+	
+	
+	JButton testButton;
+	JButton setupButton;
 
 	public ListsPanelMain() {
+		
+		
+		
+		
+		
 		listsPanelMain = new JPanel();
 		randomButton = new JButton("random");
 		randomButton.addActionListener(this);
@@ -29,6 +39,17 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 		
 		
 		
+		testButton = new JButton("Datatest");
+		testButton.addActionListener(this);
+		
+		setupButton = new JButton("setupButton");
+		setupButton.addActionListener(this);
+		
+		
+		listsPanelMain.add(testButton);
+		
+		listsPanelMain.add(setupButton);
+		
 		add(listsPanelMain);
 		
 		
@@ -42,5 +63,24 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 			
 			randomResult.setText(list1.randomItem());
 		}
+		
+		if(e.getSource() == testButton) {
+			System.out.println("testButton clicked");
+			
+			try {
+				Test.setup();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		if(e.getSource() == setupButton) {
+			
+			list1.addName("hallo");
+			list1.addName("tschüss");
+			System.out.println(list1.getSize());
+		}
 	}
+	
+	
 }

@@ -7,6 +7,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import javax.swing.JOptionPane;
+
 public class MainFrame extends JFrame implements ActionListener{
 	
 	/**
@@ -16,8 +18,9 @@ public class MainFrame extends JFrame implements ActionListener{
 	JFrame mainFrame;
 	JMenuBar mainMenuBar;
 	JMenu tools;
+	JMenu editMenu;
 	JMenuItem lists;
-	
+	JMenuItem editLists;
 	MainPanel mainPanel1;
 	
 	public MainFrame() {
@@ -29,10 +32,20 @@ public class MainFrame extends JFrame implements ActionListener{
 		mainMenuBar = new JMenuBar();
 		tools = new JMenu("Tools");
 		lists = new JMenuItem("Lists");
+		
+		editMenu = new JMenu("edit");
+		editLists = new JMenuItem("edit lists");
+		
 		mainFrame.setJMenuBar(mainMenuBar);
 		mainMenuBar.add(tools);
+		mainMenuBar.add(editMenu);
+		
+		
 		tools.add(lists);
 		lists.addActionListener(this);
+		
+		editMenu.add(editLists);
+		editLists.addActionListener(this);
 		
 		//add the MainPanel
 		mainPanel1 = new MainPanel();
@@ -51,6 +64,13 @@ public class MainFrame extends JFrame implements ActionListener{
 		if (e.getSource() == lists) {
 			mainPanel1.cardLayout.show(mainPanel1.mainPanel, "listsPanel1");
 			System.out.println("show lists");
+		}
+		
+		if (e.getSource() == editLists) {
+			// write action
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, "MenuItem \"editLists was\" clicked!");
+		
 		}
 	}
 	
