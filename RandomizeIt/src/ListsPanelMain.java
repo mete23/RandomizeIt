@@ -23,6 +23,7 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	JButton testButton;
 	JButton setupButton;
 	JButton listListItemsButton;
+	JButton clearListButton;
 
 	public ListsPanelMain() {
 		
@@ -55,6 +56,10 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 		setupButton = new JButton("setupButton");
 		setupButton.addActionListener(this);
 		
+		clearListButton = new JButton("clear List");
+		clearListButton.addActionListener(this);
+		
+		listsPanelMain.add(clearListButton);
 		
 		listsPanelMain.add(testButton);
 		
@@ -102,6 +107,17 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 			
 			list1.addName("hallo");
 			list1.addName("tschüss");
+			System.out.println(list1.getSize());
+		}
+		if(e.getSource() == clearListButton) {
+			//Action to perform if clearListButton was clicked
+			int sizeOfList = list1.getSize();
+			for (int i = 0; i < sizeOfList; i++) {
+				list1.removeNameAt(0);
+
+			}
+			System.out.println("List was cleared");
+			
 			System.out.println(list1.getSize());
 		}
 	}

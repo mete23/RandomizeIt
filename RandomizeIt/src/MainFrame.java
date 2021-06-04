@@ -22,6 +22,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	JMenuItem lists;
 	JMenuItem editLists;
 	MainPanel mainPanel1;
+
 	
 	public MainFrame() {
 		mainFrame = new JFrame();
