@@ -24,6 +24,9 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 	JButton setupButton;
 	JButton listListItemsButton;
 	JButton clearListButton;
+	JButton loadNamesListButton;
+	JButton saveNamesListButton;
+	JButton setupFolderButton;
 
 	public ListsPanelMain() {
 		
@@ -59,11 +62,27 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 		clearListButton = new JButton("clear List");
 		clearListButton.addActionListener(this);
 		
+		saveNamesListButton = new JButton("save Names");
+		saveNamesListButton.addActionListener(this);
+		
+		loadNamesListButton = new JButton("load Names");
+		loadNamesListButton.addActionListener(this);
+		
+		setupFolderButton = new JButton("setupFolder and File");
+		setupFolderButton.addActionListener(this);
+		
+		
 		listsPanelMain.add(clearListButton);
 		
 		listsPanelMain.add(testButton);
 		
 		listsPanelMain.add(setupButton);
+		
+		listsPanelMain.add(saveNamesListButton);
+		listsPanelMain.add(loadNamesListButton);
+		
+		listsPanelMain.add(setupFolderButton);
+	
 		
 		add(listsPanelMain);
 		
@@ -84,7 +103,7 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 			String list1Items = new String();
 			list1Items = "";
 			for (int n = 0; n < list1.getSize(); n++) {
-				list1Items = list1Items + list1.getItemAt(n) + "; ";
+				list1Items = list1Items + list1.getItemAt(n) + "\n ";
 				
 			}
 			JFrame frame = new JFrame();
@@ -117,8 +136,38 @@ public class ListsPanelMain extends JPanel implements ActionListener{
 
 			}
 			System.out.println("List was cleared");
+		}
+		
+		if(e.getSource() == saveNamesListButton) {
+			//Action to perform if saveNamesListButton was pressed
 			
-			System.out.println(list1.getSize());
+			try {
+				list1.saveNames();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		if (e.getSource() == loadNamesListButton) {
+			//Action to perform if loadNamesListButton was pressed
+			
+			try {
+				list1.loadNames();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		if (e.getSource() == setupFolderButton) {
+			list1.setFolder("NamenOrdner");
+			try {
+				list1.setFile("NamenOrdner/names.txt");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
 		}
 	}
 	
