@@ -7,8 +7,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import javax.swing.JOptionPane;
-
 public class MainFrame extends JFrame implements ActionListener{
 	
 	/**
@@ -64,19 +62,15 @@ public class MainFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == lists) {
 			mainPanel1.cardLayout.show(mainPanel1.mainPanel, "listsPanel1");
+			mainPanel1.listsPanel1.listsCardLayout.show(mainPanel1.listsPanel1.listsPanel, "listsPanelMain");
 			System.out.println("show lists");
 		}
 		
 		if (e.getSource() == editLists) {
 			// write action
-			JFrame frame = new JFrame();
-			JOptionPane.showMessageDialog(frame, "MenuItem \"editLists was\" clicked!");
-			int amountOfNames = Integer.parseInt(JOptionPane.showInputDialog("Wie viele Namen möchten Sie hinzufügen?"));
-			for (int i = 1; i<= amountOfNames; i++){
-				String nameForAdding = JOptionPane.showInputDialog("Gib den " + i + ". Namen ein!");
-				ListsPanelMain.list1.addName(nameForAdding);
-			}
 			
+			mainPanel1.listsPanel1.listsCardLayout.show(mainPanel1.listsPanel1.listsPanel, "editListsPanel");
+			System.out.println("show editLists");
 		}
 	}
 	
