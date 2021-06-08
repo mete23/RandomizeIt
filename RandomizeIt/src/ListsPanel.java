@@ -60,7 +60,9 @@ public class ListsPanel extends JPanel implements ActionListener{
 		editListsPanel.add(saveNamesListButton);
 		editListsPanel.add(loadNamesListButton);
 		
-		
+		clearListButton.addActionListener(this);
+		saveNamesListButton.addActionListener(this);
+		loadNamesListButton.addActionListener(this);
 		
 		
 	}
