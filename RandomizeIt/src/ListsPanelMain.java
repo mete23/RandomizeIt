@@ -77,14 +77,12 @@ public class ListsPanelMain extends JPanel implements ActionListener {
 		setupFolderButton = new JButton("setupFolder and File");
 		setupFolderButton.addActionListener(this);
 
-		listsPanelMain.add(clearListButton);
+		
 
 		listsPanelMain.add(testButton);
 
 		listsPanelMain.add(setupButton);
 
-		listsPanelMain.add(saveNamesListButton);
-		listsPanelMain.add(loadNamesListButton);
 
 		listsPanelMain.add(setupFolderButton);
 
@@ -129,35 +127,7 @@ public class ListsPanelMain extends JPanel implements ActionListener {
 			list1.addName("tschüss");
 			System.out.println(list1.getSize());
 		}
-		if (e.getSource() == clearListButton) {
-			// Action to perform if clearListButton was clicked
-			int sizeOfList = list1.getSize();
-			for (int i = 0; i < sizeOfList; i++) {
-				list1.removeNameAt(0);
-
-			}
-			System.out.println("List was cleared");
-		}
-
-		if (e.getSource() == saveNamesListButton) {
-			// Action to perform if saveNamesListButton was pressed
-
-			try {
-				list1.saveNames();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		}
-
-		if (e.getSource() == loadNamesListButton) {
-			// Action to perform if loadNamesListButton was pressed
-
-			try {
-				list1.loadNames();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		}
+		
 
 		if (e.getSource() == setupFolderButton) {
 			list1.setFolder("NamenOrdner");

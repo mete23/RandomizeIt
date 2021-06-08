@@ -4,9 +4,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
-
+import java.awt.GridLayout;
 import javax.swing.JLabel;
 public class ListsPanel extends JPanel implements ActionListener{
 
@@ -20,6 +21,11 @@ public class ListsPanel extends JPanel implements ActionListener{
 	
 	JButton temporaryEditListsButton;
 	
+	JButton clearListButton;
+	JButton loadNamesListButton;
+	JButton saveNamesListButton;
+	
+	GridLayout gridLayout1 = new GridLayout(2, 3, 6, 10);
 	public ListsPanel() {
 		listsPanel = new JPanel();
 		listsPanelMain = new ListsPanelMain();
@@ -41,10 +47,18 @@ public class ListsPanel extends JPanel implements ActionListener{
 		
 		
 		//editListsPanel:
+		editListsPanel.setLayout(this.gridLayout1);
 		temporaryEditListsButton = new JButton("EditLists");
 		editListsPanel.add(temporaryEditListsButton);
-		temporaryEditListsButton.addActionListener( this);
+		temporaryEditListsButton.addActionListener(this);
 		
+		clearListButton = new JButton("clear List");
+		saveNamesListButton = new JButton("save Names");
+		loadNamesListButton = new JButton("load Names");
+		
+		editListsPanel.add(clearListButton);
+		editListsPanel.add(saveNamesListButton);
+		editListsPanel.add(loadNamesListButton);
 		
 		
 		
@@ -63,5 +77,35 @@ public class ListsPanel extends JPanel implements ActionListener{
 				ListsPanelMain.list1.addName(nameForAdding);
 			}
 		}
+		if (e.getSource() == saveNamesListButton) {
+			// Action to perform if saveNamesListButton was pressed
+
+			try {
+				ListsPanelMain.list1.saveNames();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+
+		if (e.getSource() == loadNamesListButton) {
+			// Action to perform if loadNamesListButton was pressed
+
+			try {
+				ListsPanelMain.list1.loadNames();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+		if (e.getSource() == clearListButton) {
+			// Action to perform if clearListButton was clicked
+			int sizeOfList = ListsPanelMain.list1.getSize();
+			for (int i = 0; i < sizeOfList; i++) {
+				ListsPanelMain.list1.removeNameAt(0);
+
+			}
+			System.out.println("List was cleared");
+		}
+
+		
 	}
 }
